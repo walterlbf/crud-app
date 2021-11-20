@@ -8,13 +8,22 @@ export default function Form() {
         task:''
     });
 
-    handleSubmit = (event) => {
-        setTarefa()
+    const handleChange = ({target: {value, id}}) => {
+        setTarefa({
+            ...tarefa,
+            [id]: value, 
+        });
     } 
+    console.log(tarefa);
+    
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log('submit');
+    }
 
     return (
-        <form onSubmit='submit'>
-            <input type='text' />
+        <form onSubmit={handleSubmit}>
+            <input type='text' id='task' onChange={handleChange}/>
             <Button />
         </form>
     )
