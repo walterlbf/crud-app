@@ -6,7 +6,9 @@ function App() {
   return (
     <div className="App-header">
       <header>
-        Digite um item para adcionar à lista abaixo:
+        <h3>
+          Digite um item para adcionar à lista abaixo:
+        </h3>
       </header>
       <Form />
       <List />
