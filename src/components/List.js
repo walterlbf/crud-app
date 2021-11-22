@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import * as Api from '../services/Api';
-import { useEffect, useState } from 'react';
 
-export default function List() {
+class List extends Component {
+    render() {
 
-    const [list, setList] = useState([]);
+        const { listItems } = this.props;
+        return (
+            <>
+                <h3>Lista de Itens</h3>
 
-    useEffect(() => {
-        fetchApi();
-    });
-
-    const fetchApi = async () => {
-        const allItems = await Api.getItems();
-        setList(allItems);
-        console.log(list);
+                {listItems.map((item, index) =>
+                    <li key={index}>
+                        {item.item}
+                        <button>Editar</button>
+                        <button>remover</button>
+                    </li>)
+                }
+            </>
+        )
     }
-    
-    return (
-        <>
-            <h3>Lista de Itens</h3>
-
-            {list.map((item, index) => <li key={index}>{item.item}</li>)}
-        </>
-    )
 }
+
+const mapStateToProps = (state) => ({
+    listItems: state.addItemReducer.list,
+});
+
+export default connect(mapStateToProps)(List);

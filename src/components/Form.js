@@ -1,30 +1,50 @@
-import React from 'react'
-import Button from './Button'
-import { useState } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import addItemToList from '../actions';
+import * as Api from '../services/Api';
 
-export default function Form() {
 
-    const [item, setItem] = useState({
-        item:''
-    });
 
-    const handleChange = ({target: {value, id}}) => {
-        setItem({
-            ...item,
-            [id]: value, 
-        });
-    } 
-    console.log(item);
-    
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('submit');
+class Form extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            item: '',
+        };
     }
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <input type='text' id='item' onChange={handleChange}/>
-            <Button />
-        </form>
-    )
+    render() {
+        
+        const { addItem } = this.props;
+
+        const handleChange = ({target: {value, id}}) => {
+            this.setState({
+                [id]: value,
+            });
+        };
+        console.log(this.state.item);
+        
+        const handleSubmit = async (event) => {
+            event.preventDefault();
+            await Api.createItem(this.state);
+            addItem(this.state);
+            console.log('submit');
+            console.log(this.setState);
+        }
+
+        return (
+            <form onSubmit={handleSubmit}>
+                <input type='text' id='item' onChange={handleChange}/>
+                <button type='submit'>Adcionar Item</button>
+            </form>
+        )
+    }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    addItem: (item) => dispatch(addItemToList(item)),
+});
+
+export default connect(null, mapDispatchToProps)(Form);

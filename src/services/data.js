@@ -7,7 +7,7 @@ const items = [
       id: 2,
       item: 'dormir',
     },
-    ];
+  ];
   
 export default items;
   

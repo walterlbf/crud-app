@@ -1,12 +1,15 @@
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+    list: [],
+};
 
-const reducer = (state = INITIAL_STATE, action) => {
+export const addItemList = (state = INITIAL_STATE, action) => {
     switch (action.type){
-        case '':
-            return state;
+    case 'ADD_ITEM':
+            return {
+                ...state,
+                list: [...state.list, action.payload.item],
+            };
         default:
             return state;
     }
 }
-
-export default reducer;
