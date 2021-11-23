@@ -23,7 +23,7 @@ class List extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    listItems: state.addItemReducer.list,
+    listItems: state.itemListReducer.list,
 });
 
 export default connect(mapStateToProps)(List);

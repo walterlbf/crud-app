@@ -25,8 +25,8 @@ const simulateRequest = (response) => (callback) => {
 
 export const getItems = () => (
   new Promise((resolve) => {
-    const movies = readItems();
-    simulateRequest(movies)(resolve);
+    const items = readItems();
+    simulateRequest(items)(resolve);
   })
 );
 
@@ -39,13 +39,13 @@ export const getItemById = (itemId) => {
 
 export const updateItem = (updatedItem) => (
   new Promise((resolve) => {
-    const itens = readItems().map((item) => {
+    const items = readItems().map((item) => {
       if (item.id === parseInt(updatedItem.id, 10)) {
         return { ...item, ...updatedItem };
       }
       return item;
     });
-    saveItems(itens);
+    saveItems(items);
     simulateRequest(SUCCESS_STATUS)(resolve);
   })
 );

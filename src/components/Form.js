@@ -28,10 +28,10 @@ class Form extends Component {
         
         const handleSubmit = async (event) => {
             event.preventDefault();
-            await Api.createItem(this.state);
             addItem(this.state);
+            await Api.createItem(this.state);
             console.log('submit');
-            console.log(this.setState);
+            console.log(this.state);
         }
 
         return (
