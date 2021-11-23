@@ -1,14 +1,19 @@
-const addItemToList = (item) => ({
+export const addItemToList = (item) => ({
     type: 'ADD_ITEM',
     payload: {
         item,
     }
 })
 
-function requestCurrency() {
-    return {
-      type: 'REQUEST_CURRENCY',
-    };
-}
+export const deleteItem = (id) => ({
+    type: 'DELETE_ITEM',
+    payload: {
+        id,
+    }
+})
 
-export default addItemToList;
+// exportfunction requestCurrency() {
+//     return {
+//       type: 'REQUEST_CURRENCY',
+//     };
+// }
