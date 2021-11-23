@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import addItemToList from '../actions';
+import { addItemToList } from '../actions';
 import * as Api from '../services/Api';
 
 
@@ -29,10 +29,14 @@ class Form extends Component {
         
         const handleSubmit = async (event) => {
             event.preventDefault();
+
+            this.setState((prev) => ({
+                id: prev.id + 1,
+                
+            }));
+
             addItem(this.state);
             await Api.createItem(this.state);
-            console.log('submit');
-            console.log(this.state);
         }
 
         return (
