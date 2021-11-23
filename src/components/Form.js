@@ -11,6 +11,7 @@ class Form extends Component {
         super(props);
 
         this.state = {
+            id: 0,
             item: '',
         };
     }
