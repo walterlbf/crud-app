@@ -3,14 +3,19 @@ export const addItemToList = (item) => ({
     payload: {
         item,
     }
-})
+});
 
 export const deleteItem = (id) => ({
     type: 'DELETE_ITEM',
     payload: {
         id,
     }
-})
+});
+
+export const updateItem = (payload) => ({
+    type: 'UPDATE_ITEM',
+    payload,
+});
 
 // exportfunction requestCurrency() {
 //     return {
