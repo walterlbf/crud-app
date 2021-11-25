@@ -29,8 +29,22 @@ export const saveEdit = ({id, item, update}) => ({
     }
 });
 
-// exportfunction requestCurrency() {
-//     return {
-//       type: 'REQUEST_CURRENCY',
-//     };
-// }
+const requestApi = () => ({
+    type: 'REQUEST_API',
+});
+
+const responseApi = (items) => ({
+    type: 'RESPONSE_API',
+    payload: {
+        items,
+    }
+})
+
+export function fetchApi () {
+    return (dispatch) => {
+        dispatch(requestApi());
+        return fetch('/home/walter/Documentos/crud-app/src/services/data.js')
+        .then((response) => response.json())
+        .then((items) => dispatch(responseApi(items)));
+    };
+}
