@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addItemToList } from '../actions';
 import * as Api from '../services/Api';
 
-const Form = ({ addItem }) => {
+function Form ({ addItem }) {
     const inicitalInput = {
         id: 0,
         item: '',
@@ -11,6 +11,7 @@ const Form = ({ addItem }) => {
     }
 
     const [item, setItem] = useState(inicitalInput)
+    const [isFetching, setIsFetchin] = useState(false);
 
     const handleChange = ({target: {value, id}}) => {
         console.log(item);
@@ -20,16 +21,16 @@ const Form = ({ addItem }) => {
         });
     };
     
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         setItem((prev) => ({ 
             id: prev.id + 1,
-            item: '',
-            update: false
+            item: inicitalInput.item,
+            update: inicitalInput.update
         }));
 
         addItem(item);
-        await Api.createItem(item);
+        Api.createItem(item);
     }
 
     return (
@@ -38,7 +39,7 @@ const Form = ({ addItem }) => {
                 type='text'
                 id='item'
                 value={item.item}
-                placeholder={item.item.length <= 0 ? 'digite algo para adcionar na lista' : ' '}
+                placeholder={item.item.length <= 0 ? 'digite para acionar o botão' : ' '}
                 onChange={handleChange}
             />
             <button
@@ -50,50 +51,6 @@ const Form = ({ addItem }) => {
         </form>
     )
 }
-
-// class Form extends Component {
-
-//     constructor(props) {
-//         super(props);
-        
-//         this.state = {
-//             id: 0,
-//             item: '',
-//             update: false
-//         };
-//     }
-
-//     render() {
-        
-//         const { addItem } = this.props;
-//         const { item } = this.state;
-
-//         const handleChange = ({target: {value, id}}) => {
-//             this.setState({
-//                 [id]: value,
-//             });
-//         };
-        
-//         const handleSubmit = async (event) => {
-//             event.preventDefault();
-
-//             this.setState((prev) => ({
-//                 id: prev.id + 1,
-                
-//             }));
-
-//             addItem(this.state);
-//             await Api.createItem(this.state);
-//         }
-
-//         return (
-//             <form onSubmit={handleSubmit}>
-//                 <input type='text' id='item' onChange={handleChange}/>
-//                 <button type='submit' disabled={item.length <= 0}>Adcionar Item</button>
-//             </form>
-//         )
-//     }
-// }
 
 const mapDispatchToProps = (dispatch) => ({
     addItem: (item) => dispatch(addItemToList(item)),

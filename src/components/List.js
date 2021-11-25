@@ -1,26 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
 import Item from './Item';
 // import * as Api from '../services/Api';
 import Edit from './Edit';
 
-class List extends Component {
-    render() {
+function List ({listItems}) {
+    
+    return (
+        <>
+            <h3>Lista de Itens</h3>
 
-        const { listItems } = this.props;
-        
-        return (
-            <>
-                <h3>Lista de Itens</h3>
-
-                {listItems.map((item, index) =>(
-                    <div key={index}>
-                        {item.update ? <Edit key={index} item={item}/> : <Item key={index} item={item}/>}
-                    </div>    
-                ))}
-            </>
-        )
-    }
+                {listItems.map((item, index) => (
+                <div key={index}>
+                    {item.update ? <Edit key={index} item={item}/> : <Item key={index} item={item}/>}
+                </div>    
+            ))}
+                
+        </>
+    )
 }
 
 const mapStateToProps = (state) => ({
