@@ -26,7 +26,6 @@ class Form extends Component {
                 [id]: value,
             });
         };
-        console.log(this.state.item);
         
         const handleSubmit = async (event) => {
             event.preventDefault();

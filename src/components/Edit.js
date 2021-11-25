@@ -27,7 +27,7 @@ class Edit extends Component {
             const { saveEdit } = this.props;
             event.preventDefault();
 
-            console.log('handleSubmit: ' + this.state);
+            console.log(this.state);
             saveEdit(this.state)
 
         }

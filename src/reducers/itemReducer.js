@@ -17,12 +17,19 @@ export const itemReducer = (state = INITIAL_STATE, action) => {
         }
     case 'UPDATE_ITEM':
         return {
+            ...state,
             list: state.list.map((item) => item.id === action.payload.id ? 
-                {...item, update: !item.update} : item )
+                {   ...item,
+                    update: !item.update,
+                } : item )
         }
     case 'SAVE_EDIT':
         return {
-            ...state,
+            list: state.list.map((item) => item.id === action.payload.id ? 
+                {   ...item,
+                    item: action.payload.item,
+                    update: !action.payload.update,
+                } : item)
         }
     default:
         return state;

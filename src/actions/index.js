@@ -20,10 +20,12 @@ export const updateItem = ({id, update}) => ({
     }
 });
 
-export const saveEdit = (item) => ({
+export const saveEdit = ({id, item, update}) => ({
     type: 'SAVE_EDIT',
     payload: {
+        id,
         item,
+        update,
     }
 });
 

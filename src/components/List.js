@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Item from './Item';
-import * as Api from '../services/Api';
+// import * as Api from '../services/Api';
 import Edit from './Edit';
 
 class List extends Component {
