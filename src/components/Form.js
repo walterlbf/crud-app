@@ -34,7 +34,13 @@ const Form = ({ addItem }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type='text' id='item' value={item.item} onChange={handleChange}/>
+            <input
+                type='text'
+                id='item'
+                value={item.item}
+                placeholder={item.item.length <= 0 ? 'digite algo para adcionar na lista' : ' '}
+                onChange={handleChange}
+            />
             <button
                 type='submit'
                 disabled={item.item.length <= 0}
