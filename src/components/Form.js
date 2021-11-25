@@ -20,6 +20,7 @@ class Form extends Component {
     render() {
         
         const { addItem } = this.props;
+        const { item } = this.state;
 
         const handleChange = ({target: {value, id}}) => {
             this.setState({
@@ -42,7 +43,7 @@ class Form extends Component {
         return (
             <form onSubmit={handleSubmit}>
                 <input type='text' id='item' onChange={handleChange}/>
-                <button type='submit'>Adcionar Item</button>
+                <button type='submit' disabled={item.length <= 0}>Adcionar Item</button>
             </form>
         )
     }

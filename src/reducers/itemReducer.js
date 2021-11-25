@@ -29,11 +29,10 @@ export const itemReducer = (state = INITIAL_STATE, action) => {
                 {   ...item,
                     item: action.payload.item,
                     update: !action.payload.update,
-                } : item)
+                } : item
+            )
         }
     default:
         return state;
     }
 }
-
-

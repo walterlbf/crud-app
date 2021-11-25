@@ -16,7 +16,7 @@ class Edit extends Component {
 
     render() {
 
-        console.log(this.props);
+        const { item } = this.state;
         const handleChange = ({target: {value, id}}) => {
             this.setState({
                 [id]: value,
@@ -27,15 +27,25 @@ class Edit extends Component {
             const { saveEdit } = this.props;
             event.preventDefault();
 
-            console.log(this.state);
-            saveEdit(this.state)
-
+            saveEdit(this.state);
         }
 
         return (
             <form onSubmit={handleSubmit}>
-                <input type='text' id='item' value={this.state.item} onChange={handleChange} />
-                <button type='submit'>Save</button>
+                <input
+                    type='text'
+                    id='item'
+                    value={item}
+                    // placeholder={item.length <= 0 ? 'digite algo para adcionar na lista' : ' '}
+                    onChange={handleChange}
+                />
+
+                <button
+                    type='submit'
+                    disabled={item.length <= 0}
+                >
+                    Save
+                </button>
             </form>
         )
     }
