@@ -1,8 +1,8 @@
-# ToDO List - React Challenge
+# CRUD APP - React Challenge
 
 ## Description
 
-Crud app using Redux to manage states.
+A Crud app using Redux to manage states.
 
 ## Install and Run
 
