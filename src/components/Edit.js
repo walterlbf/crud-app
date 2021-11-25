@@ -34,7 +34,7 @@ const Edit = ({ saveEdit, item }) => {
 
             <button
                 type='submit'
-                disabled={item.length <= 0}
+                disabled={editItem.item.length <= 0}
             >
                 Salvar
             </button>
