@@ -12,10 +12,14 @@ export const deleteItem = (id) => ({
     }
 });
 
-export const updateItem = (payload) => ({
+export const updateItem = ({id, update}) => ({
     type: 'UPDATE_ITEM',
-    payload,
+    payload: {
+        id,
+        update,
+    }
 });
+
 
 // exportfunction requestCurrency() {
 //     return {

@@ -3,7 +3,6 @@ const INITIAL_STATE = {
 };
 
 export const itemReducer = (state = INITIAL_STATE, action) => {
-    console.log(action);
 
     switch (action.type){
     case 'ADD_ITEM':
@@ -18,7 +17,8 @@ export const itemReducer = (state = INITIAL_STATE, action) => {
         }
     case 'UPDATE_ITEM':
         return {
-            ...state,
+            list: state.list.map((item) => item.id === action.payload.id ? 
+                {...item, update: !item.update} : item )
         }
     default:
         return state;

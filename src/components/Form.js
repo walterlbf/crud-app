@@ -13,6 +13,7 @@ class Form extends Component {
         this.state = {
             id: 0,
             item: '',
+            update: false
         };
     }
 
