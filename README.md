@@ -14,6 +14,7 @@ A Crud app using Redux to manage states.
 
 - React
 - Redux
+- React Hooks
 - JavaScript
 - CSS
 - HTML
