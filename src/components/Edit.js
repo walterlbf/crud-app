@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { saveEdit } from '../actions';
 
 class Edit extends Component {
     
     constructor(props) {
         super(props);
-        console.log(this.props);
         const { item } = this.props;
         this.state = {
             id: item.id,
@@ -22,21 +22,27 @@ class Edit extends Component {
                 [id]: value,
             });
         };
-        console.log(this.state);
 
         const handleSubmit = (event) => {
+            const { saveEdit } = this.props;
             event.preventDefault();
 
-            console.log('olá');
+            console.log('handleSubmit: ' + this.state);
+            saveEdit(this.state)
+
         }
 
         return (
             <form onSubmit={handleSubmit}>
-                <input type='text' id='item' onChange={handleChange} />
+                <input type='text' id='item' value={this.state.item} onChange={handleChange} />
                 <button type='submit'>Save</button>
             </form>
         )
     }
 }
 
-export default Edit;
+const mapDispatchToProps = (dispatch) => ({
+    saveEdit: (item) => dispatch(saveEdit(item)),
+});
+
+export default connect(null, mapDispatchToProps)(Edit);

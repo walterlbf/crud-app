@@ -20,6 +20,10 @@ export const itemReducer = (state = INITIAL_STATE, action) => {
             list: state.list.map((item) => item.id === action.payload.id ? 
                 {...item, update: !item.update} : item )
         }
+    case 'SAVE_EDIT':
+        return {
+            ...state,
+        }
     default:
         return state;
     }

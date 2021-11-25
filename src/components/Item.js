@@ -5,8 +5,9 @@ import { deleteItem, updateItem } from '../actions';
 
 class Item extends Component {
     render() {
+
         const { item, toDelete, toUpdate} = this.props
-        
+
         return (
             <>
                 <p>{item.item}</p>
@@ -15,7 +16,7 @@ class Item extends Component {
             </>
         )
     }
-    }
+}
 
 const mapDispatchToProps = (dispatch) => ({
     toDelete: (id)=> dispatch(deleteItem(id)),

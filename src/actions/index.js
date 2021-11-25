@@ -20,6 +20,12 @@ export const updateItem = ({id, update}) => ({
     }
 });
 
+export const saveEdit = (item) => ({
+    type: 'SAVE_EDIT',
+    payload: {
+        item,
+    }
+});
 
 // exportfunction requestCurrency() {
 //     return {
