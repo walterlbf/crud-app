@@ -37,7 +37,7 @@ const Form = ({ addItem }) => {
             <input type='text' id='item' value={item.item} onChange={handleChange}/>
             <button
                 type='submit'
-                // disabled={item.item.length <= 0}
+                disabled={item.item.length <= 0}
             >
                 Adcionar Item
             </button>
