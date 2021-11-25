@@ -44,7 +44,7 @@ class Edit extends Component {
                     type='submit'
                     disabled={item.length <= 0}
                 >
-                    Save
+                    Salvar
                 </button>
             </form>
         )
