@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { saveEdit } from '../actions';
 
-
 const Edit = ({ saveEdit, item }) => {
     const [editItem, setEditItem] = useState({
         id: item.id,

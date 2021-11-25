@@ -9,20 +9,26 @@ const Form = ({ addItem }) => {
         item: '',
         update: false,
     }
+
     const [item, setItem] = useState(inicitalInput)
 
     const handleChange = ({target: {value, id}}) => {
         console.log(item);
         setItem({
+            ...item,
             [id]: value,
         });
     };
     
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setItem((prev) => ({ id: prev.id + 1 }));
+        setItem((prev) => ({ 
+            id: prev.id + 1,
+            item: '',
+            update: false
+        }));
+
         addItem(item);
-        setItem(inicitalInput);
         await Api.createItem(item);
     }
 
@@ -31,7 +37,7 @@ const Form = ({ addItem }) => {
             <input type='text' id='item' value={item.item} onChange={handleChange}/>
             <button
                 type='submit'
-                disabled={item.item.length <= 0}
+                // disabled={item.item.length <= 0}
             >
                 Adcionar Item
             </button>
