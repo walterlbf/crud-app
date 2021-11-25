@@ -41,10 +41,10 @@ const responseApi = (items) => ({
 })
 
 export function fetchApi () {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(requestApi());
-        return fetch('/home/walter/Documentos/crud-app/src/services/data.js')
-        .then((response) => response.json())
-        .then((items) => dispatch(responseApi(items)));
+        const response = await fetch('/home/walter/Documentos/crud-app/src/services/data.js');
+        const items = await response.json();
+        return dispatch(responseApi(items));
     };
 }

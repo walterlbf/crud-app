@@ -21,7 +21,8 @@ export const itemReducer = (state = INITIAL_STATE, action) => {
             list: state.list.map((item) => item.id === action.payload.id ? 
                 {   ...item,
                     update: !item.update,
-                } : item )
+                } : item 
+            )
         }
     case 'SAVE_EDIT':
         return {
@@ -31,6 +32,15 @@ export const itemReducer = (state = INITIAL_STATE, action) => {
                     update: !action.payload.update,
                 } : item
             )
+        }
+    case 'REQUEST_CURRENCY':
+        return {
+            ...state,
+        };
+    case 'RECEIVE_CURRENCY':
+        return {
+            ...state,
+            list: action.payload,
         }
     default:
         return state;
