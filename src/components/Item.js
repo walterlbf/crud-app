@@ -6,7 +6,7 @@ import { deleteItem, updateItem } from '../actions';
 class Item extends Component {
     render() {
         const { item, toDelete, toUpdate} = this.props
-        console.log(this.props.item.id);
+        
         return (
             <>
                 <p>{item.item}</p>
