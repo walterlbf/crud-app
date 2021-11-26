@@ -8,7 +8,7 @@ A Shopping List App using Redux to manage states and consuming a mock api.
 
 - Open terminal
 - Clone this repository with `git clone https://github.com/walterlbf/crud-app.git`
-- cd ./crud-app
+- $ cd ./crud-app
 - Install dependencies using `npm install`
 - Run project in production `npm start`
 
@@ -20,3 +20,8 @@ A Shopping List App using Redux to manage states and consuming a mock api.
 - JavaScript
 - CSS
 - HTML
+
+## Comments
+
+- Missing PropTypes
+- Missing Tests
