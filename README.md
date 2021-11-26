@@ -1,8 +1,8 @@
-# CRUD APP - React Challenge
+# Shopping List App - React Challenge
 
 ## Description
 
-A Crud app using Redux to manage states.
+A Shopping List App using Redux to manage states.
 
 ## Install and Run
 

@@ -16,7 +16,7 @@ function List ({listItems}) {
 
     return (
         <>
-            <h3>Lista de Itens</h3>
+            <h3>Lista de Compras</h3>
                 
                 {listItems.map((item, index) => (
                 <div key={index}>

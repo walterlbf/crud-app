@@ -8,7 +8,7 @@ const Item = ({item, toDelete, toUpdate}) => {
         <>
             <p>{item.item}</p>
             <button onClick={() => toUpdate(item)}>Editar</button>
-            <button onClick={() => toDelete(item.id)}>remover</button>  
+            <button onClick={() => toDelete(item.id)}>Remover</button>  
         </>
     )
 }
