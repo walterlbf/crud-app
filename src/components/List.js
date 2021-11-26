@@ -11,7 +11,7 @@ function List (props) {
 
     useEffect(() => {
         fetchApi();
-    }, []);
+    }, [fetchApi]);
 
     while(listItems.length === 0) return(
         <>
