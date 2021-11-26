@@ -9,23 +9,11 @@ import * as Api from '../services/Api';
 
 function Form ({ addItem, listItems }) {
     
-    // let nextId = listItems[listItems.length - 1]     + 1;
-    // const inicitalInput = {
-        //     id: listItems.length,
-        //     item: '',
-        //     update: false,
-        // }
-        
-        // console.log(inicitalInput.id)
-        // console.log(nextId);
-    console.log(listItems[listItems.length - 1])
-    let lastId = listItems[listItems.length - 1];
-    let {id} = lastId
-    console.log(id);
+    // let nextId = listItems[listItems.length - 1].id + 1;
     const [item, setItem] = useState({
-        id: id,
+        id: 3,
         item: '',
-        update: false
+        update: false,
     })
 
     

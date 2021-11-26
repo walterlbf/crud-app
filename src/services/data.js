@@ -1,11 +1,11 @@
 const items = [
     {
-      id: 1,
+      id: 0,
       item: 'acordar',
       update: false,
     },
     {
-      id: 2,
+      id: 1,
       item: 'dormir',
       update: false,
     },

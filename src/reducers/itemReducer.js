@@ -4,9 +4,6 @@ const INITIAL_STATE = {
 
 export const itemReducer = (state = INITIAL_STATE, action) => {
 
-    console.log(action)
-    console.log(state.list);
-
     switch (action.type){
     case 'ADD_ITEM':
         return {

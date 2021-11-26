@@ -32,7 +32,7 @@ function Edit ({ saveEdit, item }) {
 
             <button
                 type='submit'
-                disabled={editItem.item.length <= 0}
+                disabled={editItem.item.length <= 0 || (/[^a-z0-9]+/gi).test(editItem.item)}
             >
                 Salvar
             </button>
