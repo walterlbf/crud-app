@@ -1,12 +1,12 @@
 const items = [
     {
       id: 0,
-      item: 'acordar',
+      item: '1 cx Leite',
       update: false,
     },
     {
       id: 1,
-      item: 'dormir',
+      item: 'arroz',
       update: false,
     },
 ];
