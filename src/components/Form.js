@@ -8,17 +8,29 @@ import * as Api from '../services/Api';
 // regex nos inputs (/[^a-z0-9]+/gi)
 
 function Form ({ addItem, listItems }) {
-    console.log(listItems.length)
-    const inicitalInput = {
-        id: listItems.length,
+    
+    // let nextId = listItems[listItems.length - 1]     + 1;
+    // const inicitalInput = {
+        //     id: listItems.length,
+        //     item: '',
+        //     update: false,
+        // }
+        
+        // console.log(inicitalInput.id)
+        // console.log(nextId);
+    console.log(listItems[listItems.length - 1])
+    let lastId = listItems[listItems.length - 1];
+    let {id} = lastId
+    console.log(id);
+    const [item, setItem] = useState({
+        id: id,
         item: '',
-        update: false,
-    }
+        update: false
+    })
 
-    const [item, setItem] = useState(inicitalInput)
-
+    
     const handleChange = ({target: {value, id}}) => {
-        console.log(item);
+        console.log(item.id);
         setItem({
             ...item,
             [id]: value,
@@ -29,8 +41,8 @@ function Form ({ addItem, listItems }) {
         event.preventDefault();
         setItem((prev) => ({ 
             id: prev.id + 1,
-            item: inicitalInput.item,
-            update: inicitalInput.update
+            item: '',
+            update: false,
         }));
 
         addItem(item);
@@ -42,7 +54,6 @@ function Form ({ addItem, listItems }) {
             <input
                 type='text'
                 id='item'
-                value={item.item}
                 placeholder={item.item.length <= 0 ? 'digite seu item' : ' '}
                 onChange={handleChange}
             />

@@ -5,7 +5,7 @@ localStorage.setItem('items', JSON.stringify(data));
 const readItems = () => JSON.parse(localStorage.getItem('items'));
 const saveItems = (items) => localStorage.setItem('items', JSON.stringify(items));
 
-const TIMEOUT = 2000;
+const TIMEOUT = 1500;
 const SUCCESS_STATUS = 'OK';
 
 // --------------------------------------------------------------------

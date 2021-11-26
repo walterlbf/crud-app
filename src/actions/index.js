@@ -44,9 +44,8 @@ const responseApi = (items) => ({
 
 export function fetchCurr() {
     return async (dispatch) => {
-      dispatch(requestApi());
-      const response = await Api.getItems();
-      console.log(response)
+        dispatch(requestApi());
+        const response = await Api.getItems();
         return dispatch(responseApi(response));
     };
     
