@@ -1,18 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Item from './Item';
 // import * as Api from '../services/Api';
 import Edit from './Edit';
-import {requestApi} from '../actions';
+import { fetchCurr } from '../actions';
 
-function List ({listItems}) {
-    const [isFetching, setIsFetchin] = useState(false);
-    const [saveApi, setSaveApi] = useState(listItems);
-    // console.log(props);
+function List (props) {
+    
+    const {fetchApi, listItems } = props;
 
-    // componentDidMount(){
-        
-    // }
+    useEffect(() => {
+        fetchApi();
+    }, []);
+
+    while(listItems.length === 0) return(
+        <>
+            <h1>carregando lista</h1>
+        </>
+    )
 
     return (
         <>
@@ -32,8 +37,8 @@ const mapStateToProps = (state) => ({
     listItems: state.itemsList.list,
 });
 
-// const mapDispatchToProps = (dispatch) => ({
-//     requestApi: () => dispatch(requestApi()),
-// })
+const mapDispatchtoProps = (dispatch) => ({
+    fetchApi: () => dispatch(fetchCurr()),
+});
 
-export default connect(mapStateToProps, null)(List);
+export default connect(mapStateToProps, mapDispatchtoProps)(List);

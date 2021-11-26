@@ -7,9 +7,10 @@ import * as Api from '../services/Api';
 // remover com Remover e digite com D maiusculo
 // regex nos inputs (/[^a-z0-9]+/gi)
 
-function Form ({ addItem }) {
+function Form ({ addItem, listItems }) {
+    console.log(listItems.length)
     const inicitalInput = {
-        id: 0,
+        id: listItems.length,
         item: '',
         update: false,
     }
@@ -59,4 +60,8 @@ const mapDispatchToProps = (dispatch) => ({
     addItem: (item) => dispatch(addItemToList(item)),
 });
 
-export default connect(null, mapDispatchToProps)(Form);
+const mapStateToProps = (state) => ({
+    listItems: state.itemsList.list,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

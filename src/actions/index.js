@@ -42,11 +42,12 @@ const responseApi = (items) => ({
     }
 })
 
-export const fetchApi = async () => {
-    return (dispatch) => {
-        dispatch(requestApi());
-        const items = Api.getItems();
-        console.log(items);
-        return dispatch(responseApi(items));
+export function fetchCurr() {
+    return async (dispatch) => {
+      dispatch(requestApi());
+      const response = await Api.getItems();
+      console.log(response)
+        return dispatch(responseApi(response));
     };
+    
 }

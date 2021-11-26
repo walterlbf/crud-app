@@ -4,6 +4,9 @@ const INITIAL_STATE = {
 
 export const itemReducer = (state = INITIAL_STATE, action) => {
 
+    console.log(action)
+    console.log(state.list);
+
     switch (action.type){
     case 'ADD_ITEM':
         return {
@@ -33,14 +36,14 @@ export const itemReducer = (state = INITIAL_STATE, action) => {
                 } : item
             )
         }
-    case 'REQUEST_CURRENCY':
+    case 'REQUEST_API':
         return {
             ...state,
         };
-    case 'RECEIVE_CURRENCY':
+    case 'RESPONSE_API':
         return {
             ...state,
-            list: action.payload,
+            list: action.payload.items,
         }
     default:
         return state;
