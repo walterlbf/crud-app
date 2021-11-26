@@ -12,10 +12,9 @@ function Form ({ addItem, listItems }) {
     })
 
     const handleChange = ({target: {value, id}}) => {
-        console.log(item.id);
-        let newId = listItems[listItems.length -1].id + 1;
+        let newId = 0;
 
-        console.log(newId)
+        listItems.length > 0 ? newId = listItems[listItems.length -1].id + 1 : newId = 0;
 
         setItem({
             ...item,
