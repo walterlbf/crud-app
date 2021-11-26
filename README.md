@@ -2,7 +2,7 @@
 
 ## Description
 
-A Shopping List App using Redux to manage states.
+A Shopping List App using Redux to manage states and consuming a mock api.
 
 ## Install and Run
 
