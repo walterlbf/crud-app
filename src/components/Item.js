@@ -13,21 +13,6 @@ const Item = ({item, toDelete, toUpdate}) => {
     )
 }
 
-// class Item extends Component {
-//     render() {
-
-//         const { item, toDelete, toUpdate} = this.props;
-        
-//         return (
-//             <>
-//                 <p>{item.item}</p>
-//                 <button onClick={() => toUpdate(item)}>Editar</button>
-//                 <button onClick={() => toDelete(item.id)}>remover</button>  
-//             </>
-//         )
-//     }
-// }
-
 const mapDispatchToProps = (dispatch) => ({
     toDelete: (id)=> dispatch(deleteItem(id)),
     toUpdate: (id) => dispatch(updateItem(id)),

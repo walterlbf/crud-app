@@ -1,3 +1,5 @@
+import * as Api from '../services/Api';
+
 export const addItemToList = (item) => ({
     type: 'ADD_ITEM',
     payload: {
@@ -40,11 +42,11 @@ const responseApi = (items) => ({
     }
 })
 
-export function fetchApi () {
-    return async (dispatch) => {
+export const fetchApi = async () => {
+    return (dispatch) => {
         dispatch(requestApi());
-        const response = await fetch('/home/walter/Documentos/crud-app/src/services/data.js');
-        const items = await response.json();
+        const items = Api.getItems();
+        console.log(items);
         return dispatch(responseApi(items));
     };
 }
