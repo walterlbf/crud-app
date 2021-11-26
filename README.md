@@ -1,4 +1,4 @@
-# Shopping List App - React Challenge
+# Shopping List App
 
 ## Description
 
